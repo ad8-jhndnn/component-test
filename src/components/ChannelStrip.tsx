@@ -19,6 +19,7 @@ export const ChannelStrip: React.FC<{ device: Device }> = ({ device }) => {
 
   }}>
     <Stack spacing={3}>
+      <div>{device.name}</div>
       <Stack sx={{ height: 150 }} spacing={1} direction="row">
         <AudSlider parameter={LEFT}></AudSlider>
         <AudMeter parameter={LEFTLEVEL} />

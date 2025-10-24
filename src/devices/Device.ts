@@ -1,6 +1,7 @@
 import { Parameter } from './Parameter'
 
 export class Device {
+  name: string
   parameters: {
     LEFT: Parameter,
     LEFTLEVEL: Parameter,
@@ -9,6 +10,7 @@ export class Device {
     MUTE: Parameter,
   };
   constructor() {
+    this.name = "";
     this.parameters = {
       LEFT: new Parameter(),
       LEFTLEVEL: new Parameter(),
@@ -29,5 +31,7 @@ export class DeviceCollection {
       channel1: new Device(),
       channel2: new Device()
     }
+    this.devices.channel1.name = "channel1";
+    this.devices.channel2.name = "channel2";
   }
 }
