@@ -9,7 +9,7 @@ interface ButtonInfo {
 }
 
 export const AudButton: React.FC<ButtonInfo> = ({ parameter }) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(parameter.value);
 
   useEffect(() => {
     const listener = () => { setValue(parameter.value); };

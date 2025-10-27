@@ -19,6 +19,8 @@ export class Device {
       RIGHTLEVEL: new Parameter(),
       MUTE: new Parameter(),
     };
+    this.parameters.LEFT.update(50);
+    this.parameters.RIGHT.update(50);
   }
 }
 

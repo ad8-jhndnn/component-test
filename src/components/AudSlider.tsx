@@ -3,7 +3,7 @@ import { Parameter } from '../devices/Parameter'
 import Slider from '@mui/material/Slider'
 
 export const AudSlider: React.FC<{ parameter: Parameter}> = ({parameter}) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(parameter.value);
 
   useEffect(()=> {
     const listener = ()=> { setValue(parameter.value); };
