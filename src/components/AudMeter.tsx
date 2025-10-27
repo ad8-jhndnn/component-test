@@ -10,7 +10,8 @@ const VerticalLinearProgress = styled(LinearProgress)(() => ({
   height: "100%",
   [`& .${linearProgressClasses.bar}`]: {
     backgroundColor: "#F5F6FA",
-    borderBottom: "2px solid blue"
+    borderBottom: "2px solid blue",
+    transition: "50ms"
   },
   [`&.${linearProgressClasses.colorSecondary}`]: {
     backgroundColor: "#eb82bf"
@@ -27,6 +28,7 @@ export const AudMeter: React.FC<{ parameter: Parameter}> = ({parameter}) => {
 
   return <VerticalLinearProgress
     variant="determinate"
+    
     value={value}
     sx={{
       [`& .${linearProgressClasses.bar}`]: {

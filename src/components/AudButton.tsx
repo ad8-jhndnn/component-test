@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Button from '@mui/material/Button'
 import { Parameter } from '../devices/Parameter'
+import VolumeMuteOff from '@mui/icons-material/VolumeOff';
 
 interface ButtonInfo {
   label: string;
@@ -15,9 +16,12 @@ export const AudButton: React.FC<ButtonInfo> = ({ label, parameter }) => {
     const unsub = parameter.on("update", listener);
     return () => { unsub.unsubscribe(); }
   });
+  const isMuted = value != 0;
 
-  return <Button variant="contained" color={value == 0 ? "primary" : "secondary"}
+  return <Button
+    startIcon={isMuted ? <VolumeMuteOff/> : <></>}
+    variant="contained" color={isMuted ? "secondary" : "primary"}
     onClick={() => {
       parameter.update(parameter.value == 0 ? 1 : 0);
-    }}>{label}</Button>
+    }}>{isMuted ? "MUTED" : "MUTE"}</Button>
 }

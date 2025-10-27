@@ -9,8 +9,8 @@ export class Device {
     RIGHTLEVEL: Parameter,
     MUTE: Parameter,
   };
-  constructor() {
-    this.name = "";
+  constructor(name:string) {
+    this.name = name;
     this.parameters = {
       LEFT: new Parameter(),
       LEFTLEVEL: new Parameter(),
@@ -25,13 +25,13 @@ export class DeviceCollection {
   devices: {
     channel1: Device,
     channel2: Device,
+    channel3: Device,
   };
   constructor() {
     this.devices = {
-      channel1: new Device(),
-      channel2: new Device()
+      channel1: new Device("channel 1"),
+      channel2: new Device("channel 2"),
+      channel3: new Device("channel 3")
     }
-    this.devices.channel1.name = "channel1";
-    this.devices.channel2.name = "channel2";
   }
 }

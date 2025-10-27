@@ -9,7 +9,7 @@ function update(g: Parameter, lvl: Parameter, mute: Parameter) {
   if (mute.value == 1) {
     lvl.update(0);
   } else {
-    lvl.update(Math.random() * g.value);
+    lvl.update( g.value/2 + ( Math.random() * 10));
   }
 }
 
@@ -23,7 +23,7 @@ const App = () => {
   // debug, lets randomly set some meters
   setInterval(() => {
     Object.values(dc.devices).forEach(updateDevice)
-  }, 200)
+  }, 30)
 
   return (
     <>
