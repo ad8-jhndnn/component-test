@@ -8,7 +8,7 @@ interface ButtonInfo {
   parameter: Parameter
 }
 
-export const AudButton: React.FC<ButtonInfo> = ({ label, parameter }) => {
+export const AudButton: React.FC<ButtonInfo> = ({ parameter }) => {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
