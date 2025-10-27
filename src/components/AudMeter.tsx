@@ -21,7 +21,9 @@ const VerticalLinearProgress = styled(LinearProgress)(() => ({
 export const AudMeter: React.FC<{ parameter: Parameter}> = ({parameter}) => {
   const [value, setValue] = useState(0);
   useEffect(()=> {
-    const listener = ()=> { setValue(parameter.value); };
+    const listener = ()=> { 
+      setValue(parameter.value); 
+    }; 
     const unsub  = parameter.on("update", listener);
     return ()=> { unsub.unsubscribe(); }
   });
