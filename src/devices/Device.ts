@@ -2,6 +2,7 @@ import { Parameter } from './Parameter'
 
 export class Device {
   name: string
+  type: string = "AudioDevice";
   parameters: {
     LEFT: Parameter,
     LEFTLEVEL: Parameter,
