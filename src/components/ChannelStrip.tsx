@@ -6,6 +6,8 @@ import { AudButton } from './AudButton'
 import { AudMeter } from './AudMeter'
 import { Device } from '../devices/Device'
 
+import VolumeMuteOff from '@mui/icons-material/VolumeOff';
+
 export const ChannelStrip: React.FC<{ device: Device }> = ({ device }) => {
 
   // pull out named parameters from device
@@ -26,7 +28,10 @@ export const ChannelStrip: React.FC<{ device: Device }> = ({ device }) => {
         <AudSlider parameter={RIGHT}/>
         <AudMeter parameter={RIGHTLEVEL} />
       </Stack>
-      <AudButton parameter={MUTE} label="mute" />
+      <AudButton parameter={MUTE} 
+        onState={{color:'error', label: "MUTED", icon: <VolumeMuteOff/> }}
+        offState={{color:'primary', label: "MUTE"}}
+      />
     </Stack>
   </Box>
 }

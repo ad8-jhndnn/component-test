@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, type ReactNode } from "react"
 import Button from '@mui/material/Button'
 import { Parameter } from '../devices/Parameter'
-import VolumeMuteOff from '@mui/icons-material/VolumeOff';
 
-interface ButtonInfo {
-  label: string;
-  parameter: Parameter
+type Colors = 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning'; 
+
+interface ButtonState {
+  label?: string;
+  icon?: ReactNode;
+  color?: Colors;
 }
 
-export const AudButton: React.FC<ButtonInfo> = ({ parameter }) => {
+interface ButtonInfo {
+  parameter: Parameter;
+  offState: ButtonState;
+  onState: ButtonState;
+}
+
+export const AudButton: React.FC<ButtonInfo> = ({ parameter, onState, offState }) => {
   const [value, setValue] = useState(parameter.value);
 
   useEffect(() => {
@@ -19,9 +27,10 @@ export const AudButton: React.FC<ButtonInfo> = ({ parameter }) => {
   const isMuted = value != 0;
 
   return <Button
-    startIcon={isMuted ? <VolumeMuteOff/> : <></>}
-    variant="contained" color={isMuted ? "secondary" : "primary"}
+    variant="contained" 
+    startIcon={isMuted ? onState.icon : offState.icon}
+    color={isMuted ? onState.color : offState.color}
     onClick={() => {
       parameter.update(parameter.value == 0 ? 1 : 0);
-    }}>{isMuted ? "MUTED" : "MUTE"}</Button>
+    }}>{isMuted ? onState.label : offState.label }</Button>
 }

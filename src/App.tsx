@@ -1,7 +1,6 @@
 import './App.css'
 import { ChannelStrip } from './components/ChannelStrip'
 import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
 import { DeviceCollection, Device } from './devices/Device'
 import { Parameter } from './devices/Parameter'
 import { useEffect } from "react"
