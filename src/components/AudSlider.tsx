@@ -7,8 +7,8 @@ export const AudSlider: React.FC<{ parameter: Parameter}> = ({parameter}) => {
 
   useEffect(()=> {
     const listener = ()=> { setValue(parameter.value); };
-    const unsub  = parameter.on("update", listener);
-    return ()=> { unsub.unsubscribe(); }
+    parameter.on("update", listener);
+    return ()=> { parameter.removeListener("update", listener); }    
   });
   return <Slider
     className="audSlider"

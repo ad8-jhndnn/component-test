@@ -21,8 +21,8 @@ export const AudButton: React.FC<ButtonInfo> = ({ parameter, onState, offState }
 
   useEffect(() => {
     const listener = () => { setValue(parameter.value); };
-    const unsub = parameter.on("update", listener);
-    return () => { unsub.unsubscribe(); }
+    parameter.on("update", listener);
+    return ()=> { parameter.removeListener("update", listener); }    
   });
   const isMuted = value != 0;
 

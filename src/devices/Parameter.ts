@@ -1,4 +1,4 @@
-import { EventEmitter } from './EventEmitter'
+import { EventEmitter } from 'events'
 
 export interface IParameterEvents {
   update: (state: number) => void

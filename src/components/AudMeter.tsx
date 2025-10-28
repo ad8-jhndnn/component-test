@@ -25,8 +25,8 @@ export const AudMeter: React.FC<{ parameter: Parameter}> = ({parameter}) => {
     const listener = ()=> { 
       setValue(parameter.value); 
     }; 
-    const unsub  = parameter.on("update", listener);
-    return ()=> { unsub.unsubscribe(); }
+    parameter.on("update", listener);
+    return ()=> { parameter.removeListener("update", listener); }
   });
 
   return <VerticalLinearProgress
