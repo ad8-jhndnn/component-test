@@ -1,6 +1,7 @@
 import './App.css'
 import { ChannelStrip } from './components/ChannelStrip'
 import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
 import { DeviceCollection, Device } from './devices/Device'
 import { Parameter } from './devices/Parameter'
 import { useEffect } from "react"
@@ -19,11 +20,17 @@ function updateDevice(dvc: Device) {
   update(dvc.parameters.RIGHT, dvc.parameters.RIGHTLEVEL, dvc.parameters.MUTE);
 }
 
+
 const App = () => {
+  function update()
+  {
+    audioDevices.forEach(updateDevice)
+  }
+
   useEffect(() => {
     // debug, lets set some meters
     const interval = setInterval(() => {
-      audioDevices.forEach(updateDevice)
+      update();
     }, 100)
     return () => {
       clearInterval(interval);
