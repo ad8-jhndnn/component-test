@@ -1,15 +1,10 @@
 import React from "react"
-import Stack from '@mui/material/Stack'
-import Box from '@mui/material/Box'
-import { AudSlider } from './AudSlider'
-import { AudButton } from './AudButton'
-import { AudMeter } from './AudMeter'
-import { Device } from '../devices/Device'
-
+import { Stack, Box } from '@mui/material/'
+import { AudSlider, AudButton, AudMeter } from "./components/AudComponents"
+import { Device } from './devices/Device'
 import VolumeMuteOff from '@mui/icons-material/VolumeOff';
 
 export const ChannelStrip: React.FC<{ device: Device }> = ({ device }) => {
-
   // pull out named parameters from device
   const {LEFT, RIGHT, LEFTLEVEL, RIGHTLEVEL, MUTE} = device.parameters;
 

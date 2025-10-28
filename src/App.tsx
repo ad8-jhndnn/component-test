@@ -1,5 +1,5 @@
 import './App.css'
-import { ChannelStrip } from './components/ChannelStrip'
+import { ChannelStrip } from './ChannelStrip'
 import Stack from '@mui/material/Stack'
 import { DeviceCollection, Device } from './devices/Device'
 import { Parameter } from './devices/Parameter'
