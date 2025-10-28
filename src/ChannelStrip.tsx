@@ -1,5 +1,5 @@
 import React from "react"
-import { Stack, Box } from '@mui/material/'
+import { Stack, Box } from '@mui/material'
 import { AudSlider, AudButton, AudMeter } from "./components/AudComponents"
 import { Device } from './devices/Device'
 import VolumeMuteOff from '@mui/icons-material/VolumeOff';
